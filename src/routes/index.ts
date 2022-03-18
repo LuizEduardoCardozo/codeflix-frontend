@@ -6,7 +6,7 @@ export interface CustomRouteProps extends RouteProps {
     label: string
 }
 
-const routes: CustomRouteProps[] = [
+export const routes: CustomRouteProps[] = [
     {
         name: 'home',
         label: 'Home',
@@ -15,5 +15,3 @@ const routes: CustomRouteProps[] = [
         exact: true,
     }
 ]
-
-export default routes

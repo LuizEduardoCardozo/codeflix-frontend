@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom"
-import routes, { CustomRouteProps } from '.'
+import { CustomRouteProps, routes } from '.'
 
 const AppRouter: React.FunctionComponent = () => {
     return (
