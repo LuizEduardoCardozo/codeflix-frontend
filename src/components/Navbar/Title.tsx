@@ -1,8 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
 import Typography from "@material-ui/core/Typography"
-import logo from "../static/png/logo.png"
-
+import logo from "../../static/png/logo.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {
