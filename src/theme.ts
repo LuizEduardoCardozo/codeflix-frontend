@@ -33,7 +33,12 @@ const theme = createTheme({
     overrides: {
         MuiAppBar: {
             colorPrimary: {
-                backgroundColor: palette.background?.default
+                backgroundColor: palette.background?.default,
+            },
+        },
+        MuiDialog: {
+            paper: {
+                backgroundColor: palette.background?.default,
             }
         }
     },
