@@ -1,5 +1,6 @@
 import { RouteProps } from "react-router-dom";
 import Home from "../pages/Home";
+import { VideosByCategory } from "../pages/VideosByCategory";
 
 export interface CustomRouteProps extends RouteProps {
     name: string
@@ -15,10 +16,10 @@ export const routes: CustomRouteProps[] = [
         exact: true,
     },
     {
-        name: 'categories',
-        label: 'Categories',
+        name: 'videos-by-categories',
+        label: 'Videos por Categoria',
         path: '/categories/:id',
-        component: Home,
+        component: VideosByCategory,
         exact: true,
     },
     {

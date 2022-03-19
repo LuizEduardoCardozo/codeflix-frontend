@@ -8,6 +8,7 @@ import { DialogMyAccount } from "./DialogMyAccount/DialogMyAccount";
 import { useCallback, useMemo, useState } from "react";
 import { matchPath, useHistory, useLocation } from "react-router-dom";
 import { routes } from "../../routes";
+import { FooterCategoriesItem } from "./FooterCategoriesItem/FooterCategoriesItem";
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -27,7 +28,7 @@ const useStyle = makeStyles((theme) => ({
 
 export const MobileFooter: React.FunctionComponent = () => {
     const classes = useStyle();
-    const history = useHistory();
+    const { push } = useHistory();
     const [openDialogAccount, setOpenDialogAccount] = useState(false);
 
     const { pathname } = useLocation();
@@ -36,16 +37,8 @@ export const MobileFooter: React.FunctionComponent = () => {
     [pathname]);
 
     const goToHome = useCallback(() => {
-        history.push("/");
-    }, [history.push])
-
-    const goToCategories = useCallback(() => {
-        history.push("/categories");
-    }, [history.push])
-
-    const goToNotifications = useCallback(() => {
-        history.push("/notifications");
-    }, [history.push])
+        push("/");
+    }, [push])
 
     const onClickMyAccount = useCallback(() => {
         setOpenDialogAccount(true);
@@ -72,17 +65,14 @@ export const MobileFooter: React.FunctionComponent = () => {
                         icon={<HomeIcon />} 
                         onClick={goToHome}
                     />
-                    <FooterItem 
-                        label="Categorias" 
-                        value="categories" 
-                        icon={<HomeIcon />} 
-                        onClick={goToCategories}
+                    <FooterCategoriesItem 
+                        currentRoute={currentRoute}
                     />
                     <FooterItem 
                         label="Notificações" 
                         value="notifications" 
                         icon={<NotificationsIcon />} 
-                        onClick={goToNotifications}
+                        // onClick={goToNotifications}
                     />
                     <FooterItem 
                         label="Conta" 
