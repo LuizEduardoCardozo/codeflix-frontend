@@ -3,6 +3,9 @@ import { createTheme } from '@material-ui/core/styles'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 const palette: PaletteOptions = {
+    primary: {
+        main: red["500"],
+    },
     background: {
         default: '#1f1f1f',
     },

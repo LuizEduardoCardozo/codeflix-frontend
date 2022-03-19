@@ -13,5 +13,19 @@ export const routes: CustomRouteProps[] = [
         path: '/',
         component: Home,
         exact: true,
+    },
+    {
+        name: 'categories',
+        label: 'Categories',
+        path: '/categories/:id',
+        component: Home,
+        exact: true,
+    },
+    {
+        name: 'notifications',
+        label: 'Notificações',
+        path: '/notifications',
+        component: Home,
+        exact: true,
     }
 ]
