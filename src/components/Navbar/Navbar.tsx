@@ -5,6 +5,7 @@ import { MenuCategories } from "./Menus/MenuCategories";
 import { Notifications } from './Notifications'
 import { InputSearch } from "./InputSearch/InputSearch";
 import Title from './Title';
+import { useSmallWindow } from "../../hooks/useSmallWindow";
 
 const useStyles = makeStyles((themes) => ({
     root: {
@@ -14,19 +15,25 @@ const useStyles = makeStyles((themes) => ({
 
 const Navbar: React.FunctionComponent = () => {
     const classes = useStyles();
+    const isSmallWindow = useSmallWindow();
+
     return (
         <div className={classes.root}>
             <AppBar position="fixed">
                 <Toolbar>
-                    <MenuCategories />
+                    {!isSmallWindow &&  <MenuCategories />}
                     <Title />
-                    <Grid container justifyContent="center">
-                        <Grid item xs={8} lg={7}>
-                            <InputSearch />
+                    {!isSmallWindow && (
+                    <>
+                        <Grid container justifyContent="center">
+                            <Grid item xs={8} lg={7}>
+                                <InputSearch />
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Notifications />
-                    <MenuAccount />
+                        <Notifications />
+                        <MenuAccount />
+                    </>
+                    )}
                 </Toolbar>
             </AppBar>
         </div>
