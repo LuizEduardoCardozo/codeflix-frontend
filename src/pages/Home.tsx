@@ -3,8 +3,6 @@ import { Page } from "../components/Page";
 
 const useStyles = makeStyles({
     root: {
-        color: 'white',
-        backgroundColor: 'red',
     }
 })
 
