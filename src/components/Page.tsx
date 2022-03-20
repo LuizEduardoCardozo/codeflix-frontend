@@ -13,11 +13,10 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up("md")]: {
             paddingTop: props.margin === "normal" ? 62 : 80,
         },
-
-        '&::after': {
+        "&::after": {
             [theme.breakpoints.down(theme.breakpoints.values.mobile)]: {
                 display: "block",
-                content: "",
+                content: '""',
                 paddingTop: 100,
             },
         },
@@ -32,12 +31,8 @@ interface PageProps {
 }
 
 export const Page: React.FC<PageProps> = (props) => {
-    const { classes: propClasses = {} } = props;
-    const classes = useStyles(props);
-    const classRoot = propClasses.root ? clsx(classes.root, propClasses.root) : classes.root;
-    return (
-        <div className={classRoot}>
-            {props.children}
-        </div>
-    );
+    const { classes: propClasses = {}, margin = "normal" } = props;
+    const classes = useStyles({ classes: propClasses, margin });
+    const classRoot = clsx(classes.root, propClasses.root);
+    return <div className={classRoot}>{props.children}</div>
 }
