@@ -4,14 +4,14 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme) => ({
     root: (props: PageProps) => ({
         height: 'inherit',
-        paddingTop: props.margin == "normal" ? 48 : 62,
+        paddingTop: props.margin === "normal" ? 48 : 62,
 
         [theme.breakpoints.between("sm", "md")]: {
-            paddingTop: props.margin == "normal" ? 48 : 62,
+            paddingTop: props.margin === "normal" ? 48 : 62,
         },
 
         [theme.breakpoints.up("md")]: {
-            paddingTop: props.margin == "normal" ? 62 : 80,
+            paddingTop: props.margin === "normal" ? 62 : 80,
         },
 
         '&::after': {
