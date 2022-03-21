@@ -10,6 +10,7 @@ import Title from './Title';
 import { useSmallWindow } from "../../hooks/useSmallWindow";
 import { useCallback, useContext } from "react";
 import { DialogSearchContext } from "./DialogSearch/DialogSearchContext";
+import { HideOnScroll } from "./HideOnScroll";
 
 const useStyles = makeStyles((themes) => ({
     root: {
@@ -28,30 +29,32 @@ const Navbar: React.FunctionComponent = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="fixed">
-                <Toolbar>
-                    {!isSmallWindow &&  <MenuCategories />}
-                    <Title />
-                    {!isSmallWindow && (
-                    <>
-                        <Grid container justifyContent="center">
-                            <Grid item xs={8} lg={7}>
-                                <InputSearch />
+            <HideOnScroll>
+                <AppBar position="fixed">
+                    <Toolbar>
+                        {!isSmallWindow &&  <MenuCategories />}
+                        <Title />
+                        {!isSmallWindow && (
+                        <>
+                            <Grid container justifyContent="center">
+                                <Grid item xs={8} lg={7}>
+                                    <InputSearch />
+                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Notifications />
-                        <MenuAccount />
-                    </>
-                    )}
-                    {isSmallWindow && (
-                        <Grid container justifyContent={"flex-end"}>
-                            <IconButton onClick={handleOpen}>
-                                <SearchIcon />
-                            </IconButton>
-                        </Grid>
-                    )}
-                </Toolbar>
-            </AppBar>
+                            <Notifications />
+                            <MenuAccount />
+                        </>
+                        )}
+                        {isSmallWindow && (
+                            <Grid container justifyContent={"flex-end"}>
+                                <IconButton onClick={handleOpen}>
+                                    <SearchIcon />
+                                </IconButton>
+                            </Grid>
+                        )}
+                    </Toolbar>
+                </AppBar>
+            </HideOnScroll>
         </div>
     )
 }
